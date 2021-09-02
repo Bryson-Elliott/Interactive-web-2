@@ -2,7 +2,7 @@
 //THE TEST SERVER IS RUNNING ON LOCALHOST:3000//
 ////////////////////////////////////////////////
 
-const { default: axios } = require("axios");
+
 
 
 // PROBLEM 1
@@ -41,7 +41,7 @@ sayHelloButton.addEventListener('mouseover', () => {
 sayHelloButton.addEventListener('mouseout', () => {
     sayHelloButton.style.backgroundColor = '#EFEFEF';
     sayHelloButton.style.color = 'black';
-}
+})
 
 // PROBLEM 4
 /*
@@ -52,13 +52,13 @@ sayHelloButton.addEventListener('mouseout', () => {
 
 // DO NOT EDIT FUNCTION
 const sayHello = () => {
-    axios.get('http://localhost:3000/say-hello').then((res) => {
-        let helloText = document.getElementById('hello-text');
-        helloText.style.display = 'block';
-        helloText.style.backgroundColor = 'green';
-        helloText.textContent = res.data;
-    })
-}
+    axios.get("http://localhost:3000/say-hello").then((res) => {
+      let helloText = document.getElementById("hello-text");
+      helloText.style.display = "block";
+      helloText.style.backgroundColor = "green";
+      helloText.textContent = res.data;
+    });
+  };
 // DO NOT EDIT FUNCTION
 
 // CODE HERE
@@ -76,9 +76,9 @@ sayHelloButton.addEventListener('click', sayHello);
 */ 
 
 const ohMy = () => {
-    return axios.get('http://localhost:3000/animals')
-        .then(res => {
-            console.log(res.data)
+   return axios.get('http://localhost:3000/animals')
+       .then(res => {
+           console.log(res.data)
         })
 }
 
@@ -99,8 +99,12 @@ document.getElementById('animals-button').addEventListener('click', ohMy)
 */
 
 const repeatMyParam = () => {
-    return axios.get('http://localhost:3000/repeat/Go-Jazz')
-        .then(res => res.data)
+   return axios.get('http://localhost:3000/repeat/Go-Jazz')
+       .then((res) => {
+           let repeat = document.getElementById('repeat-button')
+           repeat.textContent = res.data;
+           repeat.style.display = 'block'
+       })
 }
 
 document.getElementById('repeat-button')
@@ -125,11 +129,18 @@ document.addEventListener('click', repeatMyParam)
 
     Outside of your new function, select the button with the id "query-button" and add a click event listener that calls your function.
 */
-
+const queryAttach = () => {
 // CODE HERE
+     axios.get('http://localhost:3000/query-test?myquery=the-jazz-are-the-best-team-in-the-west')
+       .then(res => {
+           let myQuery = document.getElementById('query-button');
+           myQuery.textContent = res.data;
+           myQuery.style.display = 'block';
+            
+       })
+}
 
-
-
+document.getElementById('query-button').addEventListener('click', queryAttach)
 ////////////////
 //INTERMEDIATE//
 ////////////////
