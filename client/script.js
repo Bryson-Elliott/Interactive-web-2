@@ -159,8 +159,9 @@ document.getElementById('query-button').addEventListener('click', queryAttach)
     In the function that you wrote for Problem 8, change the URL to test a couple different scenarios. 
 
     1: Send no queries on the URL -- what happened? 
-
-    2: Send more than 1 query on the URL -- what happened? 
+    //it says you sent an empty query
+    2: Send more than 1 query on the URL -- what happened?
+    //it says you sent more than one query 
 */
 
 // Edit code in Problem 8
